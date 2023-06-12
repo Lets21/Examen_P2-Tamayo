@@ -29,14 +29,13 @@ public class mainForm extends JFrame {
     private JTextArea textAMostrar;
     private JButton buscarButton;
     private JTextField textBuscarPlatoOrden;
+    private Menu m = new Menu();
 
     public mainForm() {
 
         ingresarPlatoButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
+            public void actionPerformed(ActionEvent e) { }
         });
         QuemarDatosButton.addActionListener(new ActionListener() {
             @Override
@@ -87,6 +86,14 @@ public class mainForm extends JFrame {
 
             }
         });
+    }
+    //Funciones
+    public void agregarLibro() {
+        if (m.ingresarPlato(textAIngresoPlatos.getText(), Integer.parseInt(textAIngresoPlatos.getText()))) {
+            JOptionPane.showMessageDialog(null, "Se ha agregado el libro correctamente");
+        } else {
+            JOptionPane.showMessageDialog(null, "Erro. Ya se ha agregado este libro.");
+        }
     }
 
     //Get mainPanel
