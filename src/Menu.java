@@ -51,11 +51,11 @@ public class Menu {
     }
 
     public void quemarDatos(){
-        ingresarPlato("Pizza", 15.0, 800, 20);
-        ingresarPlato("Ensalada", 10.0, 300, 15);
-        ingresarPlato("Burger", 12.0, 700, 25);
-        ingresarPlato("Pasta", 14.0, 600, 22);
-        ingresarPlato("Sopa", 8.0, 250,100);
+        ingresarPlato("Pasta al Pesto", 22.0, 1250, 45);
+        ingresarPlato("Pollo en salsa de champiñones", 15.0, 700, 25);
+        ingresarPlato("Tacos al Pastor", 7.50, 900, 15);
+        ingresarPlato("Nuggets de pescado", 9.0, 1000, 12);
+        ingresarPlato("Yahuarlocro", 8.0, 500,14);
     }
 
 }
