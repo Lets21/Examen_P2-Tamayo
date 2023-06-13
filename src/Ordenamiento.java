@@ -39,6 +39,10 @@ public class Ordenamiento {
             }
         }
     }
+    public static void ordenarPorCalorias(ArrayList<Plato> platos) {
+        platos.sort(Comparator.comparing(Plato::getCalorias));
+    }
+
 
     public static int busquedaBinariaPorNombre(String nombre, ArrayList<Plato> platos) {
         int left = 0, right = platos.size() - 1;

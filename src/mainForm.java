@@ -102,23 +102,23 @@ public class mainForm extends JFrame {
                         if (menu.ingresarPlato(textIngresoNombre.getText(), Double.parseDouble(textIngresoPrecio.getText()), Integer.parseInt(textIngresoCalorias.getText()), Integer.parseInt(textIngresoPreparacion.getText())) != null) {
                             textAIngresoPlatos.setText(menu.imprimirMenu());
                         } else {
-                            JOptionPane.showMessageDialog(null, "Error. El plato ya ha sido agregado");
+                            JOptionPane.showMessageDialog(null, "Alerta. El plato ya ha sido agregado");
                         }
 
                     } else {
-                        JOptionPane.showMessageDialog(null, "Error. El campo tiempo de preparacion esta vacio");
+                        JOptionPane.showMessageDialog(null, "Alerta. El campo tiempo de preparacion esta vacio");
                     }
 
                 } else {
-                    JOptionPane.showMessageDialog(null, "Error. El campo calorias esta vacio");
+                    JOptionPane.showMessageDialog(null, "Alerta. El campo calorias esta vacio");
                 }
 
             } else {
-                JOptionPane.showMessageDialog(null, "Error. El campo precio esta vacio");
+                JOptionPane.showMessageDialog(null, "Alerta. El campo precio esta vacio");
             }
 
         } else {
-            JOptionPane.showMessageDialog(null, "Error. El campo nombre esta vacio");
+            JOptionPane.showMessageDialog(null, "Alerta. El campo nombre esta vacio");
         }
     }
 
@@ -130,14 +130,14 @@ public class mainForm extends JFrame {
                 textoModifCalorias.setEditable(true);
                 textoModifPreparacion.setEditable(true);
             }else{
-                JOptionPane.showMessageDialog(null, "Error. No se ha encontrado el plato.");
+                JOptionPane.showMessageDialog(null, "Error. No existe el plato.");
                 textoModifPrecio.setEditable(false);
                 textoModifCalorias.setEditable(false);
                 textoModifPreparacion.setEditable(false);
             }
 
         }else{
-            JOptionPane.showMessageDialog(null, "Error. El campo nombre esta vacio");
+            JOptionPane.showMessageDialog(null, "Error. Falta de datos por completar");
         }
 
     }
