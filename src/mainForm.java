@@ -40,12 +40,6 @@ public class mainForm extends JFrame {
                 ingresarPlato();
             }
         });
-        QuemarDatosButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                quemarDatos();
-            }
-        });
         buscarModifButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -80,6 +74,12 @@ public class mainForm extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 buscarPlatoOrdenamiento();
+            }
+        });
+        QuemarDatosButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                quemarDatos();
             }
         });
     }
