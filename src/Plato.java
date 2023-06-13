@@ -1,6 +1,5 @@
 public class Plato {
     private String nombre;
-    private int Id;
     private double precio;
     private int calorias;
     private int tiempoPreparacion;
@@ -18,14 +17,6 @@ public class Plato {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public int getId() {
-        return Id;
-    }
-
-    public void setId(int id) {
-        this.Id = id;
     }
 
     public double getPrecio() {
@@ -56,10 +47,9 @@ public class Plato {
     public String toString() {
         return "Plato{" +
                 "nombre='" + nombre + '\'' +
-                ", Id=" + Id +
                 ", precio=" + precio +
                 ", calorias=" + calorias +
                 ", tiempoPreparacion=" + tiempoPreparacion +
-                '}';
+                '}' + "\n";
     }
 }

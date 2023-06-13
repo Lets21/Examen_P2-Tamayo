@@ -1,46 +1,61 @@
-import javax.swing.*;
 import java.util.ArrayList;
 
 public class Menu {
-    private int count = 0;
+
     private ArrayList<Plato> platos;
 
     public Menu() {
         this.platos = new ArrayList<>();
     }
 
-    public boolean ingresarPlato(String nombre, int Id, double precio, int calorias, int tiempoPreparacion) {
-        // Verificar si un plato con el mismo nombre ya existe
-        for (Plato plato : platos) {
-            if (plato.getNombre().equals(nombre)) {
-                return false; // Plato ya existe
-            }
-        }
+    public ArrayList<Plato> getPlatos() {
+        return platos;
+    }
 
-        // Si no existe, agregarlo
-        Plato p = new Plato(nombre, precio, calorias, tiempoPreparacion);
-        count++;
-        p.setId(count);
-        platos.add(p);
-        return true; // Plato agregado exitosamente
-    }
-    public Plato eliminarPlatoPorNombre(String nombre) {
-        for (Plato plato : platos) {
-            if (plato.getNombre().equals(nombre)) {
-                Plato p = plato;
-                platos.remove(p);
-                return p; // Plato eliminado exitosamente
-            }
-        }
-        return null; // Plato no encontrado
-    }
-    public Plato buscarSecuencial(String nombre) {
-        for (Plato libro : platos) {
-            if (libro.getNombre().equals(nombre)) {
-                return libro;
-            }
+    public Plato ingresarPlato(String nombre, double precio, int calorias, int tiempoPreparacion){
+        Plato plato = new Plato(nombre, precio, calorias, tiempoPreparacion);
+        if(validarPlato(plato)){
+            platos.add(plato);
+            return plato;
         }
         return null;
+    }
+
+    public Plato modificarPlato(int i, double precio, int calorias, int tiempoPreparacion){
+        platos.get(i).setPrecio(precio);
+        platos.get(i).setCalorias(calorias);
+        platos.get(i).setTiempoPreparacion(tiempoPreparacion);
+        return platos.get(i);
+    }
+
+    public boolean validarPlato(Plato p){
+        for (Plato plato : platos) {
+            if (plato.getNombre().equals(p.getNombre())) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public void eliminarPlato(int i){
+        platos.remove(i);
+    }
+
+    //Imprime todos los platos
+    public String imprimirMenu(){
+        String text = "";
+        for (Plato plato : platos) {
+            text+=plato.toString();
+        }
+        return text;
+    }
+
+    public void quemarDatos(){
+        ingresarPlato("Pizza", 15.0, 800, 20);
+        ingresarPlato("Ensalada", 10.0, 300, 15);
+        ingresarPlato("Burger", 12.0, 700, 25);
+        ingresarPlato("Pasta", 14.0, 600, 22);
+        ingresarPlato("Sopa", 8.0, 250,100);
     }
 
 }
