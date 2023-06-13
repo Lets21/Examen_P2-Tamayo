@@ -192,12 +192,6 @@ public class mainForm extends JFrame {
             }else if(comboBoxOrder.getSelectedItem().equals("ordenarPorPrecio")){
                 Ordenamiento.ordenarPorPrecio(menu.getPlatos());
                 textAMostrar.setText(menu.imprimirMenu());
-            }else if((comboBoxOrder.getSelectedItem().equals("ordenarPorCalorias"))){
-                Ordenamiento.ordenarPorCalorias(menu.getPlatos());
-                textAMostrar.setText(menu.imprimirMenu());
-            }else if((comboBoxOrder.getSelectedItem().equals("ordenarPorTiempoPreparacion"))){
-                Ordenamiento.ordenarPorTiempoPreparacion(menu.getPlatos());
-                textAMostrar.setText(menu.imprimirMenu());
             }
         }else{
             JOptionPane.showMessageDialog(null, "No hay platos en el menu");
@@ -209,27 +203,6 @@ public class mainForm extends JFrame {
         if (menu.getPlatos().size() > 0){
             if(comboBoxOrder.getSelectedItem().equals("ordenarPorNombre")){
                 int pos = Ordenamiento.busquedaBinariaPorNombre(textBuscarPlatoOrden.getText(), menu.getPlatos());
-                if (pos != -1){
-                    textAMostrar.setText(menu.getPlatos().get(pos).toString());
-                }else{
-                    JOptionPane.showMessageDialog(null, "No se ha encontrado");
-                }
-            }else if(comboBoxOrder.getSelectedItem().equals("ordenarPorPrecio")){
-                int pos = Ordenamiento.busquedaBinariaPorPrecio(Double.parseDouble(textBuscarPlatoOrden.getText()), menu.getPlatos());
-                if (pos != -1){
-                    textAMostrar.setText(menu.getPlatos().get(pos).toString());
-                }else{
-                    JOptionPane.showMessageDialog(null, "No se ha encontrado");
-                }
-            }else if((comboBoxOrder.getSelectedItem().equals("ordenarPorCalorias"))){
-                int pos = Ordenamiento.busquedaBinariaPorCalorias(Double.parseDouble(textBuscarPlatoOrden.getText()), menu.getPlatos());
-                if (pos != -1){
-                    textAMostrar.setText(menu.getPlatos().get(pos).toString());
-                }else{
-                    JOptionPane.showMessageDialog(null, "No se ha encontrado");
-                }
-            }else if((comboBoxOrder.getSelectedItem().equals("ordenarPorTiempoPreparacion"))){
-                int pos = Ordenamiento.busquedaBinariaPorTiempoPreparacion(Integer.parseInt(textBuscarPlatoOrden.getText()), menu.getPlatos());
                 if (pos != -1){
                     textAMostrar.setText(menu.getPlatos().get(pos).toString());
                 }else{

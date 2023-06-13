@@ -41,7 +41,7 @@ public class Menu {
         platos.remove(i);
     }
 
-    //Imprime todos los platos
+    //String para imprimir platos
     public String imprimirMenu(){
         String text = "";
         for (Plato plato : platos) {
