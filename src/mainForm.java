@@ -40,6 +40,12 @@ public class mainForm extends JFrame {
                 ingresarPlato();
             }
         });
+        QuemarDatosButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                quemarDatos();
+            }
+        });
         buscarModifButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -76,12 +82,6 @@ public class mainForm extends JFrame {
                 buscarPlatoOrdenamiento();
             }
         });
-        QuemarDatosButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                quemarDatos();
-            }
-        });
     }
 
     //Get mainPanel
@@ -102,23 +102,23 @@ public class mainForm extends JFrame {
                         if (menu.ingresarPlato(textIngresoNombre.getText(), Double.parseDouble(textIngresoPrecio.getText()), Integer.parseInt(textIngresoCalorias.getText()), Integer.parseInt(textIngresoPreparacion.getText())) != null) {
                             textAIngresoPlatos.setText(menu.imprimirMenu());
                         } else {
-                            JOptionPane.showMessageDialog(null, "Alerta. El plato ya ha sido agregado");
+                            JOptionPane.showMessageDialog(null, "Error. El plato ya ha sido agregado");
                         }
 
                     } else {
-                        JOptionPane.showMessageDialog(null, "Alerta. El campo tiempo de preparacion esta vacio");
+                        JOptionPane.showMessageDialog(null, "Error. El campo tiempo de preparacion esta vacio");
                     }
 
                 } else {
-                    JOptionPane.showMessageDialog(null, "Alerta. El campo calorias esta vacio");
+                    JOptionPane.showMessageDialog(null, "Error. El campo calorias esta vacio");
                 }
 
             } else {
-                JOptionPane.showMessageDialog(null, "Alerta. El campo precio esta vacio");
+                JOptionPane.showMessageDialog(null, "Error. El campo precio esta vacio");
             }
 
         } else {
-            JOptionPane.showMessageDialog(null, "Alerta. El campo nombre esta vacio");
+            JOptionPane.showMessageDialog(null, "Error. El campo nombre esta vacio");
         }
     }
 
@@ -130,14 +130,14 @@ public class mainForm extends JFrame {
                 textoModifCalorias.setEditable(true);
                 textoModifPreparacion.setEditable(true);
             }else{
-                JOptionPane.showMessageDialog(null, "Error. No existe el plato.");
+                JOptionPane.showMessageDialog(null, "Error. No se ha encontrado el plato.");
                 textoModifPrecio.setEditable(false);
                 textoModifCalorias.setEditable(false);
                 textoModifPreparacion.setEditable(false);
             }
 
         }else{
-            JOptionPane.showMessageDialog(null, "Error. Falta de datos por completar");
+            JOptionPane.showMessageDialog(null, "Error. El campo nombre esta vacio");
         }
 
     }
@@ -192,6 +192,12 @@ public class mainForm extends JFrame {
             }else if(comboBoxOrder.getSelectedItem().equals("ordenarPorPrecio")){
                 Ordenamiento.ordenarPorPrecio(menu.getPlatos());
                 textAMostrar.setText(menu.imprimirMenu());
+            }else if((comboBoxOrder.getSelectedItem().equals("ordenarPorCalorias"))){
+                Ordenamiento.ordenarPorCalorias(menu.getPlatos());
+                textAMostrar.setText(menu.imprimirMenu());
+            }else if((comboBoxOrder.getSelectedItem().equals("ordenarPorTiempoPreparacion"))){
+                Ordenamiento.ordenarPorTiempoPreparacion(menu.getPlatos());
+                textAMostrar.setText(menu.imprimirMenu());
             }
         }else{
             JOptionPane.showMessageDialog(null, "No hay platos en el menu");
@@ -203,6 +209,27 @@ public class mainForm extends JFrame {
         if (menu.getPlatos().size() > 0){
             if(comboBoxOrder.getSelectedItem().equals("ordenarPorNombre")){
                 int pos = Ordenamiento.busquedaBinariaPorNombre(textBuscarPlatoOrden.getText(), menu.getPlatos());
+                if (pos != -1){
+                    textAMostrar.setText(menu.getPlatos().get(pos).toString());
+                }else{
+                    JOptionPane.showMessageDialog(null, "No se ha encontrado");
+                }
+            }else if(comboBoxOrder.getSelectedItem().equals("ordenarPorPrecio")){
+                int pos = Ordenamiento.busquedaBinariaPorPrecio(Double.parseDouble(textBuscarPlatoOrden.getText()), menu.getPlatos());
+                if (pos != -1){
+                    textAMostrar.setText(menu.getPlatos().get(pos).toString());
+                }else{
+                    JOptionPane.showMessageDialog(null, "No se ha encontrado");
+                }
+            }else if((comboBoxOrder.getSelectedItem().equals("ordenarPorCalorias"))){
+                int pos = Ordenamiento.busquedaBinariaPorCalorias(Double.parseDouble(textBuscarPlatoOrden.getText()), menu.getPlatos());
+                if (pos != -1){
+                    textAMostrar.setText(menu.getPlatos().get(pos).toString());
+                }else{
+                    JOptionPane.showMessageDialog(null, "No se ha encontrado");
+                }
+            }else if((comboBoxOrder.getSelectedItem().equals("ordenarPorTiempoPreparacion"))){
+                int pos = Ordenamiento.busquedaBinariaPorTiempoPreparacion(Integer.parseInt(textBuscarPlatoOrden.getText()), menu.getPlatos());
                 if (pos != -1){
                     textAMostrar.setText(menu.getPlatos().get(pos).toString());
                 }else{

@@ -1,10 +1,11 @@
 public class Plato {
+
     private String nombre;
     private double precio;
-    private int calorias;
+    private double calorias;
     private int tiempoPreparacion;
 
-    public Plato(String nombre, double precio, int calorias, int tiempoPreparacion) {
+    public Plato(String nombre, double precio, double calorias, int tiempoPreparacion) {
         this.nombre = nombre;
         this.precio = precio;
         this.calorias = calorias;
@@ -27,11 +28,11 @@ public class Plato {
         this.precio = precio;
     }
 
-    public int getCalorias() {
+    public double getCalorias() {
         return calorias;
     }
 
-    public void setCalorias(int calorias) {
+    public void setCalorias(double calorias) {
         this.calorias = calorias;
     }
 
@@ -41,7 +42,7 @@ public class Plato {
 
     public void setTiempoPreparacion(int tiempoPreparacion) {
         this.tiempoPreparacion = tiempoPreparacion;
-        }
+    }
 
     @Override
     public String toString() {
